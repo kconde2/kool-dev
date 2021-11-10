@@ -1,0 +1,15 @@
+scripts:
+  composer: kool exec backend composer
+  console: kool exec backend php ./bin/console
+  nuxt: kool exec frontend sh
+  logs: kool logs frontend
+  mysql: kool exec -e MYSQL_PWD=$DB_PASSWORD database mysql -u $DB_USERNAME $DB_DATABASE
+  node-setup:
+  - kool run yarn install
+  - kool run yarn dev
+  phpunit: kool exec backend php ./bin/phpunit
+  setup:
+  - kool docker kooldev/node:14 yarn install
+  - kool start
+  - kool run composer install
+  yarn: kool exec backend yarn
